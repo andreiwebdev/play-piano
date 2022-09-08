@@ -1,19 +1,19 @@
 import React from 'react'
 import PianoWrapper from '../UI/PianoWrapper'
-import Clap from './Clap'
+import NaturalNote from './NaturalNote'
 import PianoDashboard from './PianoDashboard'
 
 const Piano = () => {
   return (
     <PianoWrapper>
       <PianoDashboard>
-        <Clap />
-        <Clap />
-        <Clap />
-        <Clap />
-        <Clap />
-        <Clap />
-        <Clap />
+        <NaturalNote sharpNote={true} />
+        <NaturalNote sharpNote={true} />
+        <NaturalNote />
+        <NaturalNote sharpNote={true} />
+        <NaturalNote sharpNote={true} />
+        <NaturalNote sharpNote={true} />
+        <NaturalNote />
       </PianoDashboard>
     </PianoWrapper>
   )
