@@ -15,48 +15,54 @@ const playSharpNote = (sharpNote) => {
   console.log(sharpNote);
 }
 
+const PIANO_SCALE = [
+  {
+    id: 'x0',
+    naturalNote: 'C4',
+    sharpNote: 'Db4'
+  },
+  {
+    id: 'x1',
+    naturalNote: 'D4',
+    sharpNote: 'Eb4'
+  },
+  {
+    id: 'x2',
+    naturalNote: 'E4'
+  },
+  {
+    id: 'x3',
+    naturalNote: 'F4',
+    sharpNote: 'Gb4'
+  },
+  {
+    id: 'x4',
+    naturalNote: 'G4',
+    sharpNote: 'Ab4'
+  },
+  {
+    id: 'x5',
+    naturalNote: 'G4',
+    sharpNote: 'Ab4'
+  },
+  {
+    id: 'x6',
+    naturalNote: 'B4'
+  },
+]
+
 const Piano = () => {
   return (
     <PianoWrapper>
       <PianoDashboard>
-        <NoteContainer 
-          note='C4' 
-          sharpNote='C5' 
-          playSharpNote={() => playSharpNote('Db4')}
-          playNaturalNote={() => playNaturalNote('C4')}
-        />
-        <NoteContainer 
-          note='D4' 
-          sharpNote={true} 
-          playSharpNote={() => playSharpNote('Eb4')}
-          playNaturalNote={() => playNaturalNote('D4')}
-        />
-        <NoteContainer 
-          note='E4' 
-          playNaturalNote={() => playNaturalNote('E4')}
-        />
-        <NoteContainer 
-          note='F4' 
-          sharpNote={true} 
-          playSharpNote={() => playSharpNote('Gb4')}
-          playNaturalNote={() => playNaturalNote('F4')}
-        />
-        <NoteContainer 
-          note='G4' 
-          sharpNote={true} 
-          playSharpNote={() => playSharpNote('Ab4')}
-          playNaturalNote={() => playNaturalNote('G4')}
-        />
-        <NoteContainer 
-          note='A4' 
-          sharpNote={true} 
-          playSharpNote={() => playSharpNote('Bb4')}
-          playNaturalNote={() => playNaturalNote('A4')}
-        />
-        <NoteContainer 
-          note='B4' 
-          playNaturalNote={() => playNaturalNote('B4')}
-        />
+        {PIANO_SCALE.map(key => (
+          <NoteContainer 
+            id={key.id}
+            playNaturalNote={() => playNaturalNote(key.naturalNote)}
+            playSharpNote={() => playSharpNote(key.sharpNote)}
+            sharpNote={key.sharpNote}
+          />
+        ))}
       </PianoDashboard>
     </PianoWrapper>
   )
