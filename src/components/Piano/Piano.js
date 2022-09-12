@@ -8,46 +8,46 @@ const synth = new Tone.Synth().toDestination();
 
 const playNaturalNote = (note) => {
   synth.triggerAttackRelease(note, '8n');
-  console.log(note);
 }
 const playSharpNote = (sharpNote) => {
   synth.triggerAttackRelease(sharpNote, '8n');
-  console.log(sharpNote);
 }
 
 const PIANO_SCALE = [
   {
-    id: 'x0',
+    id: 0,
     naturalNote: 'C4',
     sharpNote: 'Db4'
   },
   {
-    id: 'x1',
+    id: 1,
     naturalNote: 'D4',
     sharpNote: 'Eb4'
   },
   {
-    id: 'x2',
-    naturalNote: 'E4'
+    id: 2,
+    naturalNote: 'E4',
+    sharpNote: false
   },
   {
-    id: 'x3',
+    id: 3,
     naturalNote: 'F4',
     sharpNote: 'Gb4'
   },
   {
-    id: 'x4',
+    id: 4,
     naturalNote: 'G4',
     sharpNote: 'Ab4'
   },
   {
-    id: 'x5',
-    naturalNote: 'G4',
-    sharpNote: 'Ab4'
+    id: 5,
+    naturalNote: 'A4',
+    sharpNote: 'Bb4'
   },
   {
-    id: 'x6',
-    naturalNote: 'B4'
+    id: 6,
+    naturalNote: 'B4',
+    sharpNote: false
   },
 ]
 
@@ -58,8 +58,9 @@ const Piano = () => {
         {PIANO_SCALE.map(key => (
           <NoteContainer 
             id={key.id}
-            playNaturalNote={() => playNaturalNote(key.naturalNote)}
-            playSharpNote={() => playSharpNote(key.sharpNote)}
+            playNaturalNote={playNaturalNote}
+            playSharpNote={playSharpNote}
+            naturalNote={key.naturalNote}
             sharpNote={key.sharpNote}
           />
         ))}
